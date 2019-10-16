@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
@@ -38,10 +39,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.updateButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.showDataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,11 +124,18 @@
             // 
             // categoryComboBox
             // 
+            this.categoryComboBox.DataSource = this.categoryBindingSource;
+            this.categoryComboBox.DisplayMember = "Name";
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Location = new System.Drawing.Point(121, 15);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(121, 21);
             this.categoryComboBox.TabIndex = 3;
+            this.categoryComboBox.ValueMember = "Id";
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(SmallBusinessManagementApp.Model.Category);
             // 
             // updateButton
             // 
@@ -135,6 +145,7 @@
             this.updateButton.TabIndex = 4;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // saveButton
             // 
@@ -144,6 +155,7 @@
             this.saveButton.TabIndex = 4;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // searchButton
             // 
@@ -161,6 +173,7 @@
             this.showDataGridView.Name = "showDataGridView";
             this.showDataGridView.Size = new System.Drawing.Size(391, 294);
             this.showDataGridView.TabIndex = 5;
+            this.showDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.showDataGridView_CellClick);
             // 
             // ProductUi
             // 
@@ -183,6 +196,8 @@
             this.Controls.Add(this.label1);
             this.Name = "ProductUi";
             this.Text = "Product";
+            this.Load += new System.EventHandler(this.ProductUi_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -205,5 +220,6 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.DataGridView showDataGridView;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
     }
 }

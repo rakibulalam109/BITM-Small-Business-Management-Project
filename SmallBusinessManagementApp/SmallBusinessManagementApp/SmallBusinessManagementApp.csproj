@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\CategoryManager.cs" />
+    <Compile Include="BLL\CustomerManager.cs" />
+    <Compile Include="BLL\ProductManager.cs" />
+    <Compile Include="BLL\SupplierManager.cs" />
     <Compile Include="CategoryUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +68,10 @@
     <Compile Include="Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Supplier.cs" />
     <Compile Include="ProductUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +98,10 @@
     <Compile Include="ReportOnSalesUi.Designer.cs">
       <DependentUpon>ReportOnSalesUi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repository\CategoryRepository.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\SupplierRepository.cs" />
     <Compile Include="SalesUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +159,7 @@
     <EmbeddedResource Include="SupplierUi.resx">
       <DependentUpon>SupplierUi.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\SmallBusinessManagementApp.Model.Category.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -160,5 +173,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
