@@ -176,7 +176,7 @@
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.remarksTextBox);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(12, 92);
+            this.groupBox2.Location = new System.Drawing.Point(12, 93);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(761, 170);
             this.groupBox2.TabIndex = 1;
@@ -223,6 +223,7 @@
             this.categoryComboBox.Size = new System.Drawing.Size(121, 21);
             this.categoryComboBox.TabIndex = 2;
             this.categoryComboBox.ValueMember = "Id";
+            this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
             // 
             // categoryBindingSource
             // 
@@ -236,6 +237,7 @@
             this.addButton.TabIndex = 2;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // label15
             // 
@@ -301,6 +303,7 @@
             // 
             this.previousUnitPriceTextBox.Location = new System.Drawing.Point(452, 96);
             this.previousUnitPriceTextBox.Name = "previousUnitPriceTextBox";
+            this.previousUnitPriceTextBox.ReadOnly = true;
             this.previousUnitPriceTextBox.Size = new System.Drawing.Size(100, 20);
             this.previousUnitPriceTextBox.TabIndex = 1;
             // 
@@ -316,6 +319,7 @@
             // 
             this.previousMRPTextBox.Location = new System.Drawing.Point(452, 122);
             this.previousMRPTextBox.Name = "previousMRPTextBox";
+            this.previousMRPTextBox.ReadOnly = true;
             this.previousMRPTextBox.Size = new System.Drawing.Size(100, 20);
             this.previousMRPTextBox.TabIndex = 1;
             // 
@@ -359,6 +363,7 @@
             // 
             this.totalPriceTextBox.Location = new System.Drawing.Point(452, 70);
             this.totalPriceTextBox.Name = "totalPriceTextBox";
+            this.totalPriceTextBox.ReadOnly = true;
             this.totalPriceTextBox.Size = new System.Drawing.Size(100, 20);
             this.totalPriceTextBox.TabIndex = 1;
             // 
@@ -377,6 +382,7 @@
             this.unitPriceTextBox.Name = "unitPriceTextBox";
             this.unitPriceTextBox.Size = new System.Drawing.Size(100, 20);
             this.unitPriceTextBox.TabIndex = 1;
+            this.unitPriceTextBox.TextChanged += new System.EventHandler(this.unitPriceTextBox_TextChanged);
             // 
             // label8
             // 
