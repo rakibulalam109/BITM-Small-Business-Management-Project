@@ -55,7 +55,6 @@ namespace SmallBusinessManagementApp.Repository
         }
 
         string availableQuantity;
-
         public string LoadQuantity(Purchase purchase)
         {
             sqlConnection = new SqlConnection(connectionString);
@@ -76,6 +75,7 @@ namespace SmallBusinessManagementApp.Repository
 
             return availableQuantity;
         }
+
         string previousPrice;
         public string LoadPreviousPrice(Purchase purchase)
         {
@@ -157,7 +157,7 @@ namespace SmallBusinessManagementApp.Repository
 
         public DataTable ProductLoad(int Category_Id)
         {
-            commandString = @"SELECT Product.Name FROM (Product LEFT JOIN Category ON Product.Category_Id = Category.Id)  WHERE Category.Id = "+Category_Id+" ";
+            commandString = @"SELECT Product.Id,Product.Name FROM (Product LEFT JOIN Category ON Product.Category_Id = Category.Id)  WHERE Category.Id = "+Category_Id+" ";
             sqlCommand = new SqlCommand(commandString,sqlConnection);
 
             if (sqlConnection.State== ConnectionState.Closed)

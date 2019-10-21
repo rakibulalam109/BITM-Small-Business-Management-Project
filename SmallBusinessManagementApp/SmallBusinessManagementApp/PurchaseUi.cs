@@ -92,7 +92,7 @@ namespace SmallBusinessManagementApp
             //categoryComboBox.Text = "-Select-";
             categoryComboBox.DataSource = _purchaseManager.LoadCatagory();
             categoryComboBox.Text = "-select-";
-            productsComboBox.DataSource = _purchaseManager.LoadProducts();
+            //productsComboBox.DataSource = _purchaseManager.LoadProducts();
             productsComboBox.Text = "-select-";
             supplierComboBox.DataSource = _purchaseManager.LoadSupplier();
             supplierComboBox.Text = "-select-";
@@ -148,8 +148,12 @@ namespace SmallBusinessManagementApp
 
         private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            productsComboBox.DataSource = null;
             productsComboBox.DataSource = _purchaseManager.ProductLoad(Convert.ToInt32(categoryComboBox.SelectedValue));
+            productsComboBox.DisplayMember = "Name";
+            productsComboBox.ValueMember = "Id";
             productsComboBox.Text = "-select-";
+
 
         }
         private bool IsFormValid()

@@ -205,6 +205,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CustomerUi";
             this.Text = "Customer";
+            this.Load += new System.EventHandler(this.CustomerUi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

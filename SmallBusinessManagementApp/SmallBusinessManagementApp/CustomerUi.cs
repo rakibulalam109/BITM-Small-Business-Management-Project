@@ -125,5 +125,10 @@ namespace SmallBusinessManagementApp
             }
             showDataGridView.DataSource = _customerManager.Display();
         }
+
+        private void CustomerUi_Load(object sender, EventArgs e)
+        {
+            showDataGridView.DataSource = _customerManager.Display();
+        }
     }
 }

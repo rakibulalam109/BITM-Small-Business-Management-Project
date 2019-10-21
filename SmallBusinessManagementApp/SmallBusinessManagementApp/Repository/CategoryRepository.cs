@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using SmallBusinessManagementApp.Model;
 namespace SmallBusinessManagementApp.Repository
 {
@@ -55,7 +56,7 @@ namespace SmallBusinessManagementApp.Repository
             }
             catch (Exception exeption)
             {
-                //MessageBox.Show(exeption.Message);
+                MessageBox.Show(exeption.Message);
             }
 
             return isAdded;
