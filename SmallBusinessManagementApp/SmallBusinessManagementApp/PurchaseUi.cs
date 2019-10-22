@@ -45,7 +45,7 @@ namespace SmallBusinessManagementApp
                 purchase.Expire_Date = ExpireDateTimePicker.Value;
                 purchase.MRP = Convert.ToDouble(mrpTextBox.Text);
                 purchase.Remarks = remarksTextBox.Text;
-
+                purchase.Unit_Price = unitPrice;
 
 
                 purchase.Quantity = availableQuantity + quantity;
