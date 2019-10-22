@@ -125,6 +125,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CategoryUi";
             this.Text = "Category";
+            this.Load += new System.EventHandler(this.CategoryUi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.showDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

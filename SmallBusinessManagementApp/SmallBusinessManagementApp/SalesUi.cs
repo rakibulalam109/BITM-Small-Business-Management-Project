@@ -227,6 +227,7 @@ namespace SmallBusinessManagementApp
                     discountAmounTextBox.Text = (TotalMRP * discount / 100).ToString();
                     double DiscountAmount = Convert.ToDouble(discountAmounTextBox.Text);
                     payableAmountTextBox.Text = (TotalMRP - DiscountAmount).ToString();
+                    
                 }
 
             }

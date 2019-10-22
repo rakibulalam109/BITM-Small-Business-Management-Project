@@ -459,7 +459,7 @@
         private System.Windows.Forms.DataGridView showDataGridView;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button submitButton;
-        private string discountAmountTextBox;
+       // private string discountAmountTextBox;
         private System.Windows.Forms.TextBox grandTotalTextBox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
