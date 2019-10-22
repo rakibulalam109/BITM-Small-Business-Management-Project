@@ -24,6 +24,7 @@ namespace SmallBusinessManagementApp.Model
         public string Remarks { get; set; }
 
         public double TotalPrice { get; set; }
+        public DateTime Date2 { set; get; }
 
     }
 }

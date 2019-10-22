@@ -77,13 +77,14 @@
             this.searchButton.TabIndex = 2;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // showDataGridView
             // 
             this.showDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.showDataGridView.Location = new System.Drawing.Point(150, 156);
+            this.showDataGridView.Location = new System.Drawing.Point(34, 150);
             this.showDataGridView.Name = "showDataGridView";
-            this.showDataGridView.Size = new System.Drawing.Size(503, 150);
+            this.showDataGridView.Size = new System.Drawing.Size(666, 150);
             this.showDataGridView.TabIndex = 3;
             // 
             // ReportOnPurchaseUi
