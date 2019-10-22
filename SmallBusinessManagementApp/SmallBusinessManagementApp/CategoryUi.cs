@@ -110,6 +110,7 @@ namespace SmallBusinessManagementApp
         private void CategoryUi_Load(object sender, EventArgs e)
         {
             showDataGridView.DataSource = _categoryManager.Display();
+
         }
     }
 }

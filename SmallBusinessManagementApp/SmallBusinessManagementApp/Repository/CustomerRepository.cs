@@ -13,6 +13,7 @@ namespace SmallBusinessManagementApp.Repository
     {
         public bool Add(Customer customer)
         {
+
             bool isAdded = false;
             try
             {

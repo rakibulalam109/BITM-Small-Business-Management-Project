@@ -49,6 +49,8 @@
     <Compile Include="BLL\CategoryManager.cs" />
     <Compile Include="BLL\CustomerManager.cs" />
     <Compile Include="BLL\ProductManager.cs" />
+    <Compile Include="BLL\PurchaseManager.cs" />
+    <Compile Include="BLL\SalesManager.cs" />
     <Compile Include="BLL\SupplierManager.cs" />
     <Compile Include="CategoryUi.cs">
       <SubType>Form</SubType>
@@ -71,6 +73,8 @@
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Purchase.cs" />
+    <Compile Include="Model\Sales.cs" />
     <Compile Include="Model\Supplier.cs" />
     <Compile Include="ProductUi.cs">
       <SubType>Form</SubType>
@@ -101,6 +105,8 @@
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\PurchaseRepository.cs" />
+    <Compile Include="Repository\SalesRepository.cs" />
     <Compile Include="Repository\SupplierRepository.cs" />
     <Compile Include="SalesUi.cs">
       <SubType>Form</SubType>
@@ -160,6 +166,9 @@
       <DependentUpon>SupplierUi.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\SmallBusinessManagementApp.Model.Category.datasource" />
+    <None Include="Properties\DataSources\SmallBusinessManagementApp.Model.Customer.datasource" />
+    <None Include="Properties\DataSources\SmallBusinessManagementApp.Model.Product.datasource" />
+    <None Include="Properties\DataSources\SmallBusinessManagementApp.Model.Supplier.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
