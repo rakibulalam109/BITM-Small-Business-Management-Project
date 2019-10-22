@@ -79,6 +79,7 @@ namespace SmallBusinessManagementApp
         private void ProductUi_Load(object sender, EventArgs e)
         {
             categoryComboBox.DataSource = _productManager.CategoryCombo();
+            showDataGridView.DataSource = _productManager.Display();
         }
 
         private void updateButton_Click(object sender, EventArgs e)

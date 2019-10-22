@@ -106,5 +106,10 @@ namespace SmallBusinessManagementApp
             codeTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Code"].FormattedValue.ToString();
             nameTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
         }
+
+        private void CategoryUi_Load(object sender, EventArgs e)
+        {
+            showDataGridView.DataSource = _categoryManager.Display();
+        }
     }
 }

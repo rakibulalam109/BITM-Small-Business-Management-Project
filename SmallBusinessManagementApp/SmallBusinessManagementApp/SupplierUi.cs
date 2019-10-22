@@ -127,5 +127,10 @@ namespace SmallBusinessManagementApp
             emailTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Email"].FormattedValue.ToString();
             contactPersonTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Contact_Person"].FormattedValue.ToString();
         }
+
+        private void SupplierUi_Load(object sender, EventArgs e)
+        {
+            showDataGridView.DataSource = _supplierManager.Display();
+        }
     }
 }
