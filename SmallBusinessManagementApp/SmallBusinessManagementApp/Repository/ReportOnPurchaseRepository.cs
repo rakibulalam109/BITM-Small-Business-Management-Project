@@ -20,12 +20,13 @@ namespace SmallBusinessManagementApp.Repository
 
             //Command 
 
-            string commandString = @"SELECT Product.Name,Category.Name,
-SUM(Purchase.Quantity) AS Quantity,
+            string commandString = @"SELECT Product.Code, Product.Name,Category.Name AS Category,
+SUM(Purchase.Quantity) AS Available_Quantity,
 sum(Purchase.Quantity*Purchase.Unit_Price) AS CP,sum(Purchase.Quantity*Purchase.MRP) AS MRP,
 (sum(Purchase.Quantity*Purchase.MRP)-sum(Purchase.Quantity*Purchase.Unit_Price)) AS Profit
 FROM Product,Category,Purchase 
-WHERE Product.Id=Purchase.Product_id AND Category.Id=Purchase.category_id AND Date1 >= '"+purchase.Date1+"' and Date1 <= '"+purchase.Date2+"' GROUP BY Product.Id,Product.Name,Purchase.category_id,Category.Name";
+WHERE Product.Id=Purchase.Product_id AND Category.Id=Purchase.category_id AND Date1 >= '"+purchase
+.Date1+"' and Date1 <= '"+purchase.Date2+"' GROUP BY Product.Code, Product.Id,Product.Name,Purchase.category_id,Category.Name";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
             //Open
