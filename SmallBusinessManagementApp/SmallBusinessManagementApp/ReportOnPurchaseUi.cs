@@ -13,7 +13,7 @@ namespace SmallBusinessManagementApp
 {
     public partial class ReportOnPurchaseUi : Form
     {
-        ReportOnPurchaseManager _reportOnPurchaseManager = new ReportOnPurchaseManager();
+        
         public ReportOnPurchaseUi()
         {
             InitializeComponent();

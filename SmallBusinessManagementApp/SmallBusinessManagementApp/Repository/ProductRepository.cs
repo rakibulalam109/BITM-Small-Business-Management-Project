@@ -272,6 +272,76 @@ namespace SmallBusinessManagementApp.Repository
             return exists;
         }
 
+        public bool UpdateIsNameExists(Product product)
+        {
+            bool exists = false;
+            try
+            {
+                //Connection
+                string connectionString = @"Server=DESKTOP-CR4IGJV; Database=SMS_RAMPAGE; Integrated Security=True";
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
 
+                //Command 
+                //INSERT INTO Items (Name, Price) Values ('Black', 120)
+                string commandString = @"SELECT * FROM Product WHERE Name='" + product.Name + "' AND Id<>"+product.Id+"";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+                //Show
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+                //Close
+                sqlConnection.Close();
+
+            }
+            catch (Exception exeption)
+            {
+                //MessageBox.Show(exeption.Message);
+            }
+
+            return exists;
+        }
+
+        public bool UpdateIsCodeExists(Product product)
+        {
+            bool exists = false;
+            try
+            {
+                //Connection
+                string connectionString = @"Server=DESKTOP-CR4IGJV; Database=SMS_RAMPAGE; Integrated Security=True";
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                //Command 
+                //INSERT INTO Items (Name, Price) Values ('Black', 120)
+                string commandString = @"SELECT * FROM Product WHERE Code='" + product.Code + "' AND Id<>" + product.Id + "";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+                //Show
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+                //Close
+                sqlConnection.Close();
+
+            }
+            catch (Exception exeption)
+            {
+                //MessageBox.Show(exeption.Message);
+            }
+
+            return exists;
+        }
     }
 }

@@ -98,10 +98,28 @@ namespace SmallBusinessManagementApp
             Supplier supplier = new Supplier();
             supplier.Id = Id_value;
             supplier.Code = codeTextBox.Text;
+            if (_supplierManager.UpdateIsCodeExists(supplier))
+            {
+                MessageBox.Show(codeTextBox.Text+" Already Exists");
+                return;
+            }
+
             supplier.Name = nameTextBox.Text;
             supplier.Address = addressTextBox.Text;
             supplier.Contact = contactTextBox.Text;
+            if (_supplierManager.UpdateIsContactExists(supplier))
+            {
+                MessageBox.Show(contactTextBox.Text+" Already Exists");
+                return;
+            }
+
             supplier.Email = emailTextBox.Text;
+            if (_supplierManager.UpdateIsEmailExists(supplier))
+            {
+                MessageBox.Show(emailTextBox.Text+" Already Exists");
+                return;
+            }
+
             supplier.Contact_Person = contactPersonTextBox.Text;
 
             if (_supplierManager.Update(supplier))

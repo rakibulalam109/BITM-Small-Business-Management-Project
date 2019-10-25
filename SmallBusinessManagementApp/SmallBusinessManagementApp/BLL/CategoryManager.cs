@@ -37,5 +37,13 @@ namespace SmallBusinessManagementApp.BLL
         {
             return _categoryRepository.IsCodeExists(category);
         }
+        public bool UpdateIsNameExists(Category category)
+        {
+            return _categoryRepository.UpdateIsNameExists(category);
+        }
+        public bool UpdateIsCodeExists(Category category)
+        {
+            return _categoryRepository.UpdateIsCodeExists(category);
+        }
     }
 }

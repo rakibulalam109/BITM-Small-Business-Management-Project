@@ -40,6 +40,18 @@ namespace SmallBusinessManagementApp.BLL
         {
             return _supplierRepository.IsEmailExists(supplier);
         }
+        public bool UpdateIsContactExists(Supplier supplier)
+        {
+            return _supplierRepository.UpdateIsContactExists(supplier);
+        }
+        public bool UpdateIsCodeExists(Supplier supplier)
+        {
+            return _supplierRepository.UpdateIsCodeExists(supplier);
+        }
+        public bool UpdateIsEmailExists(Supplier supplier)
+        {
+            return _supplierRepository.UpdateIsEmailExists(supplier);
+        }
 
     }
 }

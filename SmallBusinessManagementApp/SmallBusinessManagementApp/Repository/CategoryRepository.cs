@@ -302,5 +302,77 @@ namespace SmallBusinessManagementApp.Repository
 
             return exists;
         }
+
+        public bool UpdateIsNameExists(Category category)
+        {
+            bool exists = false;
+            try
+            {
+                //Connection
+                string connectionString = @"Server=DESKTOP-CR4IGJV; Database=SMS_RAMPAGE; Integrated Security=True";
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                //Command 
+                //INSERT INTO Items (Name, Price) Values ('Black', 120)
+                string commandString = @"SELECT * FROM Category WHERE Name='" + category.Name + "' AND Id<>"+category.Id+"";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+                //Show
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+                //Close
+                sqlConnection.Close();
+
+            }
+            catch (Exception exeption)
+            {
+                //MessageBox.Show(exeption.Message);
+            }
+
+            return exists;
+        }
+        public bool UpdateIsCodeExists(Category category)
+        {
+            bool exists = false;
+            try
+            {
+                //Connection
+                string connectionString = @"Server=DESKTOP-CR4IGJV; Database=SMS_RAMPAGE; Integrated Security=True";
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                //Command 
+                //INSERT INTO Items (Name, Price) Values ('Black', 120)
+                string commandString = @"SELECT * FROM Category WHERE Code='" + category.Code + "' AND Id<>"+category.Id+"";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+                //Show
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+                //Close
+                sqlConnection.Close();
+
+            }
+            catch (Exception exeption)
+            {
+                //MessageBox.Show(exeption.Message);
+            }
+
+            return exists;
+        }
+
     }
 }

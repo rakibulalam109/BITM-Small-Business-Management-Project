@@ -87,7 +87,20 @@ namespace SmallBusinessManagementApp
             Product product = new Product();
             product.Id = Id_value;
             product.Code = codeTextBox.Text;
+            if (_productManager.UpdateIsCodeExists(product))
+            {
+                MessageBox.Show(codeTextBox.Text + " Already Exists");
+                return;
+            }
+
             product.Name = nameTextBox.Text;
+
+            if (_productManager.UpdateIsNameExists(product))
+            {
+                MessageBox.Show(nameTextBox.Text + " Already Exists");
+                return;
+            }
+
             product.Reorder_Level =Convert.ToInt32(reorderLevelTextBox.Text);
             product.Descriptions = descriptionRichTextBox.Text;
             product.Category_Id = Convert.ToInt32(categoryComboBox.SelectedValue);

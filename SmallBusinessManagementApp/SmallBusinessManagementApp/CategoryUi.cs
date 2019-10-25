@@ -68,6 +68,11 @@ namespace SmallBusinessManagementApp
                 return;
             }
             category.Code = codeTextBox.Text;
+            if (_categoryManager.UpdateIsCodeExists(category))
+            {
+                MessageBox.Show(codeTextBox.Text + " Already Exists");
+                return;
+            }
 
             if (String.IsNullOrEmpty(nameTextBox.Text))
             {
@@ -75,6 +80,12 @@ namespace SmallBusinessManagementApp
                 return;
             }
             category.Name = nameTextBox.Text;
+            if (_categoryManager.UpdateIsNameExists(category))
+            {
+                MessageBox.Show(nameTextBox.Text+" Already Exists");
+                return;
+            }
+
             if (_categoryManager.Update(category))
             {
                 MessageBox.Show("Data is successfully Updated!");

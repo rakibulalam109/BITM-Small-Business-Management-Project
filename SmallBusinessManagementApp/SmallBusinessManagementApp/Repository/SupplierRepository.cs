@@ -338,5 +338,113 @@ namespace SmallBusinessManagementApp.Repository
             return exists;
         }
 
+        public bool UpdateIsContactExists(Supplier supplier)
+        {
+            bool exists = false;
+            try
+            {
+                //Connection
+                string connectionString = @"Server=DESKTOP-CR4IGJV; Database=SMS_RAMPAGE; Integrated Security=True";
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                //Command 
+                //INSERT INTO Items (Name, Price) Values ('Black', 120)
+                string commandString = @"SELECT * FROM Supplier WHERE Contact='" + supplier.Contact + "' AND Id<>" + supplier.Id + "";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+                //Show
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+                //Close
+                sqlConnection.Close();
+
+            }
+            catch (Exception exeption)
+            {
+                //MessageBox.Show(exeption.Message);
+            }
+
+            return exists;
+        }
+
+        public bool UpdateIsCodeExists(Supplier supplier)
+        {
+            bool exists = false;
+            try
+            {
+                //Connection
+                string connectionString = @"Server=DESKTOP-CR4IGJV; Database=SMS_RAMPAGE; Integrated Security=True";
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                //Command 
+                //INSERT INTO Items (Name, Price) Values ('Black', 120)
+                string commandString = @"SELECT * FROM Supplier WHERE Code='" + supplier.Code + "' AND Id<>" + supplier.Id + "";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+                //Show
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+                //Close
+                sqlConnection.Close();
+
+            }
+            catch (Exception exeption)
+            {
+                //MessageBox.Show(exeption.Message);
+            }
+
+            return exists;
+        }
+
+        public bool UpdateIsEmailExists(Supplier supplier)
+        {
+            bool exists = false;
+            try
+            {
+                //Connection
+                string connectionString = @"Server=DESKTOP-CR4IGJV; Database=SMS_RAMPAGE; Integrated Security=True";
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+                //Command 
+                //INSERT INTO Items (Name, Price) Values ('Black', 120)
+                string commandString = @"SELECT * FROM Supplier WHERE Email='" + supplier.Email + "' AND Id<>" + supplier.Id + "";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                //Open
+                sqlConnection.Open();
+                //Show
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                if (dataTable.Rows.Count > 0)
+                {
+                    exists = true;
+                }
+                //Close
+                sqlConnection.Close();
+
+            }
+            catch (Exception exeption)
+            {
+                //MessageBox.Show(exeption.Message);
+            }
+
+            return exists;
+        }
+
     }
 }

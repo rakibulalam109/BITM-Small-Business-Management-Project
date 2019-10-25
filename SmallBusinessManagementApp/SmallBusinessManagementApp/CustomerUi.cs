@@ -110,10 +110,26 @@ namespace SmallBusinessManagementApp
             Customer customer = new Customer();
             customer.Id = Id_value;
             customer.Code = codeTextBox.Text;
+            if (_customerManager.UpdateIsCodeExists(customer))
+            {
+                MessageBox.Show(codeTextBox.Text+" Already Exists");
+                return;
+            }
+
             customer.Name = nameTextBox.Text;
             customer.Address = addressTextBox.Text;
             customer.Contact = contactTextBox.Text;
+            if (_customerManager.UpdateIsCodeExists(customer))
+            {
+                MessageBox.Show(contactTextBox.Text+" Already Exists");
+                return;
+            }
             customer.Email = emailTextBox.Text;
+            if (_customerManager.UpdateIsCodeExists(customer))
+            {
+                MessageBox.Show(emailTextBox.Text+" Already Exists");
+                return;
+            }
 
             if (_customerManager.Update(customer))
             {
