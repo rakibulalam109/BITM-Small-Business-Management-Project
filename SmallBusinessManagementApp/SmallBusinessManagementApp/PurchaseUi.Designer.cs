@@ -32,9 +32,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.supplyDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.supplierComboBox = new System.Windows.Forms.ComboBox();
-
             this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-
             this.invoiceNoTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,11 +41,9 @@
             this.ExpireDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.manufactureDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.productsComboBox = new System.Windows.Forms.ComboBox();
-
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-
             this.addButton = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.mrpTextBox = new System.Windows.Forms.TextBox();
@@ -72,6 +68,7 @@
             this.remarksTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.showDataGridView = new System.Windows.Forms.DataGridView();
+            this.submitButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -104,22 +101,18 @@
             // 
             // supplierComboBox
             // 
-
             this.supplierComboBox.DataSource = this.supplierBindingSource;
             this.supplierComboBox.DisplayMember = "Name";
-
             this.supplierComboBox.FormattingEnabled = true;
             this.supplierComboBox.Location = new System.Drawing.Point(119, 64);
             this.supplierComboBox.Name = "supplierComboBox";
             this.supplierComboBox.Size = new System.Drawing.Size(121, 21);
             this.supplierComboBox.TabIndex = 2;
-
             this.supplierComboBox.ValueMember = "Id";
             // 
             // supplierBindingSource
             // 
             this.supplierBindingSource.DataSource = typeof(SmallBusinessManagementApp.Model.Supplier);
-
             // 
             // invoiceNoTextBox
             // 
@@ -157,6 +150,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.submitButton);
             this.groupBox2.Controls.Add(this.ExpireDateTimePicker);
             this.groupBox2.Controls.Add(this.manufactureDateTimePicker);
             this.groupBox2.Controls.Add(this.productsComboBox);
@@ -207,77 +201,13 @@
             // 
             // productsComboBox
             // 
-
             this.productsComboBox.DataSource = this.productBindingSource;
             this.productsComboBox.DisplayMember = "Name";
-
             this.productsComboBox.FormattingEnabled = true;
             this.productsComboBox.Location = new System.Drawing.Point(127, 37);
             this.productsComboBox.Name = "productsComboBox";
             this.productsComboBox.Size = new System.Drawing.Size(121, 21);
             this.productsComboBox.TabIndex = 2;
-
-            // 
-            // categoryComboBox
-            // 
-            this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(127, 10);
-            this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(121, 21);
-            this.categoryComboBox.TabIndex = 2;
-            // 
-            // addButton
-            // 
-            this.addButton.Location = new System.Drawing.Point(668, 97);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 2;
-            this.addButton.Text = "Add";
-            this.addButton.UseVisualStyleBackColor = true;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 18);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 13);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Category";
-            // 
-            // mrpTextBox
-            // 
-            this.mrpTextBox.Location = new System.Drawing.Point(452, 148);
-            this.mrpTextBox.Name = "mrpTextBox";
-            this.mrpTextBox.Size = new System.Drawing.Size(100, 20);
-            this.mrpTextBox.TabIndex = 1;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 41);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(49, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Products";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(318, 151);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "MRP(TK)";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 67);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(32, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Code";
-
             this.productsComboBox.ValueMember = "Id";
             this.productsComboBox.SelectedIndexChanged += new System.EventHandler(this.productsComboBox_SelectedIndexChanged);
             // 
@@ -310,37 +240,16 @@
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
-
             // 
-
-            // codeTextBox
+            // label15
             // 
-            this.codeTextBox.Location = new System.Drawing.Point(148, 64);
-            this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.codeTextBox.TabIndex = 1;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 18);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 13);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Category";
             // 
-            // previousUnitPriceTextBox
-            // 
-            this.previousUnitPriceTextBox.Location = new System.Drawing.Point(452, 96);
-            this.previousUnitPriceTextBox.Name = "previousUnitPriceTextBox";
-            this.previousUnitPriceTextBox.Size = new System.Drawing.Size(100, 20);
-            this.previousUnitPriceTextBox.TabIndex = 1;
-            // 
-            // availableQuantityTextBox
-            // 
-            this.availableQuantityTextBox.Location = new System.Drawing.Point(148, 93);
-            this.availableQuantityTextBox.Name = "availableQuantityTextBox";
-            this.availableQuantityTextBox.Size = new System.Drawing.Size(100, 20);
-            this.availableQuantityTextBox.TabIndex = 1;
-            // 
-            // previousMRPTextBox
-            // 
-            this.previousMRPTextBox.Location = new System.Drawing.Point(452, 122);
-            this.previousMRPTextBox.Name = "previousMRPTextBox";
-            this.previousMRPTextBox.Size = new System.Drawing.Size(100, 20);
-            this.previousMRPTextBox.TabIndex = 1;
-
             // mrpTextBox
             // 
             this.mrpTextBox.Location = new System.Drawing.Point(452, 148);
@@ -399,8 +308,14 @@
             this.previousUnitPriceTextBox.ReadOnly = true;
             this.previousUnitPriceTextBox.Size = new System.Drawing.Size(100, 20);
             this.previousUnitPriceTextBox.TabIndex = 1;
-
-
+            // 
+            // availableQuantityTextBox
+            // 
+            this.availableQuantityTextBox.Location = new System.Drawing.Point(148, 93);
+            this.availableQuantityTextBox.Name = "availableQuantityTextBox";
+            this.availableQuantityTextBox.Size = new System.Drawing.Size(100, 20);
+            this.availableQuantityTextBox.TabIndex = 1;
+            // 
             // previousMRPTextBox
             // 
             this.previousMRPTextBox.Location = new System.Drawing.Point(452, 122);
@@ -418,7 +333,6 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Previous Unit Price(TK)";
             // 
-
             // label4
             // 
             this.label4.AutoSize = true;
@@ -450,9 +364,7 @@
             // 
             this.totalPriceTextBox.Location = new System.Drawing.Point(452, 70);
             this.totalPriceTextBox.Name = "totalPriceTextBox";
-
             this.totalPriceTextBox.ReadOnly = true;
-
             this.totalPriceTextBox.Size = new System.Drawing.Size(100, 20);
             this.totalPriceTextBox.TabIndex = 1;
             // 
@@ -471,9 +383,7 @@
             this.unitPriceTextBox.Name = "unitPriceTextBox";
             this.unitPriceTextBox.Size = new System.Drawing.Size(100, 20);
             this.unitPriceTextBox.TabIndex = 1;
-
             this.unitPriceTextBox.TextChanged += new System.EventHandler(this.unitPriceTextBox_TextChanged);
-
             // 
             // label8
             // 
@@ -523,6 +433,15 @@
             this.showDataGridView.Name = "showDataGridView";
             this.showDataGridView.Size = new System.Drawing.Size(761, 179);
             this.showDataGridView.TabIndex = 2;
+            // 
+            // submitButton
+            // 
+            this.submitButton.Location = new System.Drawing.Point(668, 137);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(75, 23);
+            this.submitButton.TabIndex = 4;
+            this.submitButton.Text = "Submit";
+            this.submitButton.UseVisualStyleBackColor = true;
             // 
             // PurchaseUi
             // 
@@ -588,5 +507,6 @@
         private System.Windows.Forms.BindingSource supplierBindingSource;
         private System.Windows.Forms.BindingSource productBindingSource;
         private System.Windows.Forms.BindingSource categoryBindingSource;
+        private System.Windows.Forms.Button submitButton;
     }
 }

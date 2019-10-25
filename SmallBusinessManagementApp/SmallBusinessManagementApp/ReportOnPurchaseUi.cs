@@ -21,11 +21,7 @@ namespace SmallBusinessManagementApp
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            Purchase purchase = new Purchase();
-            purchase.Date1 = startDateTimePicker.Value;
-            purchase.Date2 = endDateTimePicker.Value;
-
-            showDataGridView.DataSource = _reportOnPurchaseManager.Search(purchase);
+          
             
         }
     }
