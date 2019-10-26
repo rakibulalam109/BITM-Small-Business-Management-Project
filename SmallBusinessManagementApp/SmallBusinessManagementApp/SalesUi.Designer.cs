@@ -114,8 +114,7 @@
             this.customerComboBox.Size = new System.Drawing.Size(121, 21);
             this.customerComboBox.TabIndex = 2;
             this.customerComboBox.ValueMember = "Id";
-            this.customerComboBox.SelectedIndexChanged += new System.EventHandler(this.customerComboBox_SelectedIndexChanged);
-            // 
+
             // customerBindingSource
             // 
             this.customerBindingSource.DataSource = typeof(SmallBusinessManagementApp.Model.Customer);
@@ -189,7 +188,7 @@
             this.productComboBox.Size = new System.Drawing.Size(121, 21);
             this.productComboBox.TabIndex = 2;
             this.productComboBox.ValueMember = "Id";
-            this.productComboBox.SelectedIndexChanged += new System.EventHandler(this.productComboBox_SelectedIndexChanged);
+
             // 
             // productBindingSource
             // 
@@ -205,7 +204,7 @@
             this.categoryComboBox.Size = new System.Drawing.Size(121, 21);
             this.categoryComboBox.TabIndex = 2;
             this.categoryComboBox.ValueMember = "Id";
-            this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
+
             // 
             // categoryBindingSource
             // 
@@ -219,7 +218,7 @@
             this.addButton.TabIndex = 2;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+           
             // 
             // availableQualityTextBox
             // 
@@ -244,7 +243,7 @@
             this.mrpTextBox.ReadOnly = true;
             this.mrpTextBox.Size = new System.Drawing.Size(100, 20);
             this.mrpTextBox.TabIndex = 1;
-            this.mrpTextBox.TextChanged += new System.EventHandler(this.mrpTextBox_TextChanged);
+
             // 
             // qualityTextBox
             // 
@@ -252,7 +251,7 @@
             this.qualityTextBox.Name = "qualityTextBox";
             this.qualityTextBox.Size = new System.Drawing.Size(100, 20);
             this.qualityTextBox.TabIndex = 1;
-            this.qualityTextBox.TextChanged += new System.EventHandler(this.qualityTextBox_TextChanged);
+//            this.qualityTextBox.TextChanged += new System.EventHandler(this.qualityTextBox_TextChanged);
             // 
             // label9
             // 
@@ -422,7 +421,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "SalesUi";
             this.Text = "Sales";
-            this.Load += new System.EventHandler(this.SalesUi_Load);
+//            this.Load += new System.EventHandler(this.SalesUi_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
