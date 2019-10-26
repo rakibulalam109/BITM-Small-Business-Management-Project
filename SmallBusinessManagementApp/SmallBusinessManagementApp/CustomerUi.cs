@@ -42,9 +42,9 @@ namespace SmallBusinessManagementApp
             }
             customer.Name = nameTextBox.Text;
 
-            if (String.IsNullOrEmpty(contactTextBox.Text))
+            if (String.IsNullOrEmpty(contactTextBox.Text)||contactTextBox.Text.Length!=11)
             {
-                MessageBox.Show("contact Cannot be Empty");
+                MessageBox.Show("contact should be of 11 character");
                 return;
             }
             customer.Contact = contactTextBox.Text;
@@ -109,6 +109,11 @@ namespace SmallBusinessManagementApp
         {
             Customer customer = new Customer();
             customer.Id = Id_value;
+            if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+            {
+                MessageBox.Show("Code Should consists of 4 character");
+                return;
+            }
             customer.Code = codeTextBox.Text;
             if (_customerManager.UpdateIsCodeExists(customer))
             {
@@ -116,12 +121,29 @@ namespace SmallBusinessManagementApp
                 return;
             }
 
+            if (String.IsNullOrEmpty(nameTextBox.Text))
+            {
+                MessageBox.Show("Name Cannot be Empty");
+                return;
+            }
             customer.Name = nameTextBox.Text;
             customer.Address = addressTextBox.Text;
+            if (String.IsNullOrEmpty(contactTextBox.Text)||contactTextBox.Text.Length!=11)
+            {
+                MessageBox.Show("contact should be of 11 character");
+                return;
+            }
+
             customer.Contact = contactTextBox.Text;
             if (_customerManager.UpdateIsCodeExists(customer))
             {
                 MessageBox.Show(contactTextBox.Text+" Already Exists");
+                return;
+            }
+
+            if (String.IsNullOrEmpty(emailTextBox.Text))
+            {
+                MessageBox.Show("Email Cannot be Empty");
                 return;
             }
             customer.Email = emailTextBox.Text;

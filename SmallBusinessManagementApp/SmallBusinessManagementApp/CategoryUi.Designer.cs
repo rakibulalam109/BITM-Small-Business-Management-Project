@@ -114,6 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.showDataGridView);
             this.Controls.Add(this.searchButton);
@@ -123,6 +124,7 @@
             this.Controls.Add(this.codeTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "CategoryUi";
             this.Text = "Category";
             this.Load += new System.EventHandler(this.CategoryUi_Load);

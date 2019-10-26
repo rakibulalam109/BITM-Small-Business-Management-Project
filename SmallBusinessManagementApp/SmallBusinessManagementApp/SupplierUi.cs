@@ -42,9 +42,9 @@ namespace SmallBusinessManagementApp
             }
             supplier.Name = nameTextBox.Text;
 
-            if (String.IsNullOrEmpty(contactTextBox.Text))
+            if (String.IsNullOrEmpty(contactTextBox.Text)||contactTextBox.Text.Length!=11)
             {
-                MessageBox.Show("contact Cannot be Empty");
+                MessageBox.Show("contact should be of 11 character");
                 return;
             }
             supplier.Contact = contactTextBox.Text;
@@ -97,19 +97,44 @@ namespace SmallBusinessManagementApp
         {
             Supplier supplier = new Supplier();
             supplier.Id = Id_value;
+
+            if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+            {
+                MessageBox.Show("Code Should consists of 4 character");
+                return;
+            }
+
             supplier.Code = codeTextBox.Text;
             if (_supplierManager.UpdateIsCodeExists(supplier))
             {
                 MessageBox.Show(codeTextBox.Text+" Already Exists");
                 return;
             }
+            if (String.IsNullOrEmpty(nameTextBox.Text))
+            {
+                MessageBox.Show("Name Cannot be Empty");
+                return;
+            }
 
             supplier.Name = nameTextBox.Text;
             supplier.Address = addressTextBox.Text;
+
+            if (String.IsNullOrEmpty(contactTextBox.Text) || contactTextBox.Text.Length != 11)
+            {
+                MessageBox.Show("contact should be of 11 character");
+                return;
+            }
+
             supplier.Contact = contactTextBox.Text;
             if (_supplierManager.UpdateIsContactExists(supplier))
             {
                 MessageBox.Show(contactTextBox.Text+" Already Exists");
+                return;
+            }
+
+            if (String.IsNullOrEmpty(emailTextBox.Text))
+            {
+                MessageBox.Show("Email Cannot be Empty");
                 return;
             }
 

@@ -86,10 +86,20 @@ namespace SmallBusinessManagementApp
         {
             Product product = new Product();
             product.Id = Id_value;
+            if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+            {
+                MessageBox.Show("Code Should consists of 4 character");
+                return;
+            }
             product.Code = codeTextBox.Text;
             if (_productManager.UpdateIsCodeExists(product))
             {
                 MessageBox.Show(codeTextBox.Text + " Already Exists");
+                return;
+            }
+            if (String.IsNullOrEmpty(nameTextBox.Text))
+            {
+                MessageBox.Show("Product Name cannot be empty");
                 return;
             }
 
@@ -101,8 +111,15 @@ namespace SmallBusinessManagementApp
                 return;
             }
 
+            if (String.IsNullOrEmpty(reorderLevelTextBox.Text))
+            {
+                MessageBox.Show("Reorder level  cannot be empty");
+                return;
+            }
+
             product.Reorder_Level =Convert.ToInt32(reorderLevelTextBox.Text);
             product.Descriptions = descriptionRichTextBox.Text;
+
             product.Category_Id = Convert.ToInt32(categoryComboBox.SelectedValue);
             if (_productManager.Update(product))
             {
@@ -127,5 +144,7 @@ namespace SmallBusinessManagementApp
             descriptionRichTextBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Descriptions"].FormattedValue.ToString();
             categoryComboBox.Text = showDataGridView.Rows[e.RowIndex].Cells["Category"].FormattedValue.ToString();
         }
+
+       
     }
 }

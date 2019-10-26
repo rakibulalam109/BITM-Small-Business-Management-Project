@@ -133,6 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportPurchaseButton);
             this.Controls.Add(this.stockButton);
@@ -143,6 +144,7 @@
             this.Controls.Add(this.productButton);
             this.Controls.Add(this.customerButton);
             this.Controls.Add(this.categoryButton);
+            this.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.Name = "Index";
             this.Text = "Index";
             this.ResumeLayout(false);
