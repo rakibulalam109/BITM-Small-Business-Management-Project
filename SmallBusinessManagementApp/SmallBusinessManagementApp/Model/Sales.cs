@@ -20,5 +20,6 @@ namespace SmallBusinessManagementApp.Model
         public double TotalMrp { get; set; }
 
 
+        public DateTime Date2 { get; set; }
     }
 }

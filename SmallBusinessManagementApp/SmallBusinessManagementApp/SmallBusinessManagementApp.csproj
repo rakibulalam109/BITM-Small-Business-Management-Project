@@ -50,7 +50,10 @@
     <Compile Include="BLL\CustomerManager.cs" />
     <Compile Include="BLL\ProductManager.cs" />
     <Compile Include="BLL\PurchaseManager.cs" />
+    <Compile Include="BLL\ReportOnPurchaseManager.cs" />
+    <Compile Include="BLL\ReportOnSalesManager.cs" />
     <Compile Include="BLL\SalesManager.cs" />
+    <Compile Include="BLL\StockReportManager.cs" />
     <Compile Include="BLL\SupplierManager.cs" />
     <Compile Include="CategoryUi.cs">
       <SubType>Form</SubType>
@@ -106,7 +109,10 @@
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\PurchaseRepository.cs" />
+    <Compile Include="Repository\ReportOnPurchaseRepository.cs" />
+    <Compile Include="Repository\ReportOnSalesRepository.cs" />
     <Compile Include="Repository\SalesRepository.cs" />
+    <Compile Include="Repository\StockReportRepository.cs" />
     <Compile Include="Repository\SupplierRepository.cs" />
     <Compile Include="SalesUi.cs">
       <SubType>Form</SubType>
