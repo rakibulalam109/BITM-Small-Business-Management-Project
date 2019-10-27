@@ -22,79 +22,91 @@ namespace SmallBusinessManagementApp
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            Category category = new Category();
-            if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+            try
             {
-                MessageBox.Show("Code Should consists of 4 character");
-                return;
-            }
-            category.Code = codeTextBox.Text;
+                Category category = new Category();
+                if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+                {
+                    MessageBox.Show("Code Should consists of 4 character");
+                    return;
+                }
+                category.Code = codeTextBox.Text;
 
-            if (_categoryManager.IsCodeExists(category))
-            {
-                MessageBox.Show(codeTextBox.Text + " Already Exists");
-                return;
-            }
+                if (_categoryManager.IsCodeExists(category))
+                {
+                    MessageBox.Show(codeTextBox.Text + " Already Exists");
+                    return;
+                }
 
-            if (String.IsNullOrEmpty(nameTextBox.Text))
+                if (String.IsNullOrEmpty(nameTextBox.Text))
+                {
+                    MessageBox.Show("Product Name cannot be empty");
+                    return;
+                }
+                category.Name = nameTextBox.Text;
+                if (_categoryManager.IsNameExists(category))
+                {
+                    MessageBox.Show(nameTextBox.Text + " Already Exists");
+                    return;
+                }
+                if (_categoryManager.Add(category))
+                {
+                    MessageBox.Show("Data is successfully Saved!");
+                }
+                else
+                {
+                    MessageBox.Show("Save Error");
+                }
+                showDataGridView.DataSource = _categoryManager.Display();
+            }catch(Exception exception)
             {
-                MessageBox.Show("Product Name cannot be empty");
-                return;
+                MessageBox.Show(exception.Message);
             }
-            category.Name = nameTextBox.Text;
-            if (_categoryManager.IsNameExists(category))
-            {
-                MessageBox.Show(nameTextBox.Text + " Already Exists");
-                return;
-            }
-            if (_categoryManager.Add(category))
-            {
-                MessageBox.Show("Data is successfully Saved!");
-            }
-            else
-            {
-                MessageBox.Show("Save Error");
-            }
-            showDataGridView.DataSource = _categoryManager.Display();
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            Category category = new Category();
-            category.Id = Id_value;
-            if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+            try
             {
-                MessageBox.Show("Category Code Should consists of 4 character");
-                return;
-            }
-            category.Code = codeTextBox.Text;
-            if (_categoryManager.UpdateIsCodeExists(category))
-            {
-                MessageBox.Show(codeTextBox.Text + " Already Exists");
-                return;
-            }
+                Category category = new Category();
+                category.Id = Id_value;
+                if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+                {
+                    MessageBox.Show("Category Code Should consists of 4 character");
+                    return;
+                }
+                category.Code = codeTextBox.Text;
+                if (_categoryManager.UpdateIsCodeExists(category))
+                {
+                    MessageBox.Show(codeTextBox.Text + " Already Exists");
+                    return;
+                }
 
-            if (String.IsNullOrEmpty(nameTextBox.Text))
-            {
-                MessageBox.Show("Category Name Cannot be empty");
-                return;
-            }
-            category.Name = nameTextBox.Text;
-            if (_categoryManager.UpdateIsNameExists(category))
-            {
-                MessageBox.Show(nameTextBox.Text+" Already Exists");
-                return;
-            }
+                if (String.IsNullOrEmpty(nameTextBox.Text))
+                {
+                    MessageBox.Show("Category Name Cannot be empty");
+                    return;
+                }
+                category.Name = nameTextBox.Text;
+                if (_categoryManager.UpdateIsNameExists(category))
+                {
+                    MessageBox.Show(nameTextBox.Text + " Already Exists");
+                    return;
+                }
 
-            if (_categoryManager.Update(category))
+                if (_categoryManager.Update(category))
+                {
+                    MessageBox.Show("Data is successfully Updated!");
+                }
+                else
+                {
+                    MessageBox.Show("Update Error");
+                }
+                showDataGridView.DataSource = _categoryManager.Display();
+            }catch(Exception exception)
             {
-                MessageBox.Show("Data is successfully Updated!");
+                MessageBox.Show(exception.Message);
             }
-            else
-            {
-                MessageBox.Show("Update Error");
-            }
-            showDataGridView.DataSource = _categoryManager.Display();
         }
 
         private void searchButton_Click(object sender, EventArgs e)

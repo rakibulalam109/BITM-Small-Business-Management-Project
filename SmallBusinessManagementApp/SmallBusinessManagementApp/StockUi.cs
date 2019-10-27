@@ -23,21 +23,27 @@ namespace SmallBusinessManagementApp
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            Purchase purchase = new Purchase();
-            purchase.Date1 = startDateTimePicker.Value;
-            purchase.Date2 = endDateTimePicker.Value;
-            Product product = new Product();
-            if (String.IsNullOrEmpty(categoryTextBox.Text) && String.IsNullOrEmpty(productTextBox.Text))
+            try
             {
-                MessageBox.Show("Please Enter at least one field to search");
-                return;
+                Purchase purchase = new Purchase();
+                purchase.Date1 = startDateTimePicker.Value;
+                purchase.Date2 = endDateTimePicker.Value;
+                Product product = new Product();
+                if (String.IsNullOrEmpty(categoryTextBox.Text) && String.IsNullOrEmpty(productTextBox.Text))
+                {
+                    MessageBox.Show("Please Enter at least one field to search");
+                    return;
+                }
+
+                product.Name = productTextBox.Text;
+                Category category = new Category();
+                category.Name = categoryTextBox.Text;
+
+                showDataGridView.DataSource = _stockReportManager.Search(purchase, product, category);
+            }catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
             }
-
-            product.Name = productTextBox.Text;
-            Category category = new Category();
-            category.Name = categoryTextBox.Text;
-
-            showDataGridView.DataSource = _stockReportManager.Search(purchase, product, category);
         }
     }
 }

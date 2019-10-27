@@ -41,7 +41,7 @@
             // 
             // categoryButton
             // 
-            this.categoryButton.Location = new System.Drawing.Point(246, 22);
+            this.categoryButton.Location = new System.Drawing.Point(143, 51);
             this.categoryButton.Name = "categoryButton";
             this.categoryButton.Size = new System.Drawing.Size(154, 23);
             this.categoryButton.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             // productButton
             // 
-            this.productButton.Location = new System.Drawing.Point(246, 51);
+            this.productButton.Location = new System.Drawing.Point(372, 51);
             this.productButton.Name = "productButton";
             this.productButton.Size = new System.Drawing.Size(154, 23);
             this.productButton.TabIndex = 0;
@@ -61,7 +61,7 @@
             // 
             // customerButton
             // 
-            this.customerButton.Location = new System.Drawing.Point(246, 80);
+            this.customerButton.Location = new System.Drawing.Point(143, 97);
             this.customerButton.Name = "customerButton";
             this.customerButton.Size = new System.Drawing.Size(154, 23);
             this.customerButton.TabIndex = 0;
@@ -71,7 +71,7 @@
             // 
             // supplierButton
             // 
-            this.supplierButton.Location = new System.Drawing.Point(246, 109);
+            this.supplierButton.Location = new System.Drawing.Point(372, 97);
             this.supplierButton.Name = "supplierButton";
             this.supplierButton.Size = new System.Drawing.Size(154, 23);
             this.supplierButton.TabIndex = 0;
@@ -81,7 +81,7 @@
             // 
             // salesButton
             // 
-            this.salesButton.Location = new System.Drawing.Point(246, 167);
+            this.salesButton.Location = new System.Drawing.Point(372, 138);
             this.salesButton.Name = "salesButton";
             this.salesButton.Size = new System.Drawing.Size(154, 23);
             this.salesButton.TabIndex = 0;
@@ -91,7 +91,7 @@
             // 
             // purchaseButton
             // 
-            this.purchaseButton.Location = new System.Drawing.Point(246, 138);
+            this.purchaseButton.Location = new System.Drawing.Point(143, 138);
             this.purchaseButton.Name = "purchaseButton";
             this.purchaseButton.Size = new System.Drawing.Size(154, 23);
             this.purchaseButton.TabIndex = 0;
@@ -101,7 +101,7 @@
             // 
             // stockButton
             // 
-            this.stockButton.Location = new System.Drawing.Point(246, 196);
+            this.stockButton.Location = new System.Drawing.Point(99, 196);
             this.stockButton.Name = "stockButton";
             this.stockButton.Size = new System.Drawing.Size(154, 23);
             this.stockButton.TabIndex = 0;
@@ -111,7 +111,7 @@
             // 
             // reportSalesButton
             // 
-            this.reportSalesButton.Location = new System.Drawing.Point(246, 225);
+            this.reportSalesButton.Location = new System.Drawing.Point(280, 196);
             this.reportSalesButton.Name = "reportSalesButton";
             this.reportSalesButton.Size = new System.Drawing.Size(154, 23);
             this.reportSalesButton.TabIndex = 0;
@@ -121,7 +121,7 @@
             // 
             // reportPurchaseButton
             // 
-            this.reportPurchaseButton.Location = new System.Drawing.Point(246, 254);
+            this.reportPurchaseButton.Location = new System.Drawing.Point(470, 196);
             this.reportPurchaseButton.Name = "reportPurchaseButton";
             this.reportPurchaseButton.Size = new System.Drawing.Size(154, 23);
             this.reportPurchaseButton.TabIndex = 0;

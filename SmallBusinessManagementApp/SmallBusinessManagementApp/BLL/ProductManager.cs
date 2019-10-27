@@ -45,6 +45,10 @@ namespace SmallBusinessManagementApp.BLL
         {
             return _productRepository.UpdateIsCodeExists(product);
         }
+        public DataTable Search(Product product)
+        {
+            return _productRepository.Search(product);
+        }
 
 
     }

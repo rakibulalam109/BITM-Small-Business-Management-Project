@@ -22,64 +22,70 @@ namespace SmallBusinessManagementApp
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            Customer customer = new Customer();
-            if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+            try
             {
-                MessageBox.Show("Code Should consists of 4 character");
-                return;
-            }
-            customer.Code = codeTextBox.Text;
-            if (_customerManager.IsCodeExists(customer))
-            {
-                MessageBox.Show(codeTextBox.Text+" Already Exists");
-                return;
-            }
-           
-            if (String.IsNullOrEmpty(nameTextBox.Text))
-            {
-                MessageBox.Show("Name Cannot be Empty");
-                return;
-            }
-            customer.Name = nameTextBox.Text;
+                Customer customer = new Customer();
+                if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+                {
+                    MessageBox.Show("Code Should consists of 4 character");
+                    return;
+                }
+                customer.Code = codeTextBox.Text;
+                if (_customerManager.IsCodeExists(customer))
+                {
+                    MessageBox.Show(codeTextBox.Text + " Already Exists");
+                    return;
+                }
 
-            if (String.IsNullOrEmpty(contactTextBox.Text)||contactTextBox.Text.Length!=11)
-            {
-                MessageBox.Show("contact should be of 11 character");
-                return;
-            }
-            customer.Contact = contactTextBox.Text;
+                if (String.IsNullOrEmpty(nameTextBox.Text))
+                {
+                    MessageBox.Show("Name Cannot be Empty");
+                    return;
+                }
+                customer.Name = nameTextBox.Text;
 
-            if (_customerManager.IsContactExists(customer))
-            {
-                MessageBox.Show(contactTextBox.Text + " Already Exists");
-                return;
-            }
+                if (String.IsNullOrEmpty(contactTextBox.Text) || contactTextBox.Text.Length != 11)
+                {
+                    MessageBox.Show("contact should be of 11 character");
+                    return;
+                }
+                customer.Contact = contactTextBox.Text;
 
-            if (String.IsNullOrEmpty(emailTextBox.Text))
-            {
-                MessageBox.Show("Email Cannot be Empty");
-                return;
-            }
-            customer.Email = emailTextBox.Text;
-            if (_customerManager.IsEmailExists(customer))
-            {
-                MessageBox.Show(emailTextBox.Text + " Already Exists");
-                return;
-            }
+                if (_customerManager.IsContactExists(customer))
+                {
+                    MessageBox.Show(contactTextBox.Text + " Already Exists");
+                    return;
+                }
+
+                if (String.IsNullOrEmpty(emailTextBox.Text))
+                {
+                    MessageBox.Show("Email Cannot be Empty");
+                    return;
+                }
+                customer.Email = emailTextBox.Text;
+                if (_customerManager.IsEmailExists(customer))
+                {
+                    MessageBox.Show(emailTextBox.Text + " Already Exists");
+                    return;
+                }
 
 
-            customer.Address = addressTextBox.Text;
-            customer.Loyality_point = Convert.ToDouble(loyalityPointTextBox.Text);
+                customer.Address = addressTextBox.Text;
+                customer.Loyality_point = Convert.ToDouble(loyalityPointTextBox.Text);
 
-            if (_customerManager.Add(customer))
+                if (_customerManager.Add(customer))
+                {
+                    MessageBox.Show("Data Saved Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Save Error");
+                }
+                showDataGridView.DataSource = _customerManager.Display();
+            }catch(Exception exception)
             {
-                MessageBox.Show("Data Saved Successfully");
+                MessageBox.Show(exception.Message);
             }
-            else
-            {
-                MessageBox.Show("Save Error");
-            }
-            showDataGridView.DataSource = _customerManager.Display();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -107,61 +113,67 @@ namespace SmallBusinessManagementApp
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            Customer customer = new Customer();
-            customer.Id = Id_value;
-            if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+            try
             {
-                MessageBox.Show("Code Should consists of 4 character");
-                return;
-            }
-            customer.Code = codeTextBox.Text;
-            if (_customerManager.UpdateIsCodeExists(customer))
-            {
-                MessageBox.Show(codeTextBox.Text+" Already Exists");
-                return;
-            }
+                Customer customer = new Customer();
+                customer.Id = Id_value;
+                if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+                {
+                    MessageBox.Show("Code Should consists of 4 character");
+                    return;
+                }
+                customer.Code = codeTextBox.Text;
+                if (_customerManager.UpdateIsCodeExists(customer))
+                {
+                    MessageBox.Show(codeTextBox.Text + " Already Exists");
+                    return;
+                }
 
-            if (String.IsNullOrEmpty(nameTextBox.Text))
-            {
-                MessageBox.Show("Name Cannot be Empty");
-                return;
-            }
-            customer.Name = nameTextBox.Text;
-            customer.Address = addressTextBox.Text;
-            if (String.IsNullOrEmpty(contactTextBox.Text)||contactTextBox.Text.Length!=11)
-            {
-                MessageBox.Show("contact should be of 11 character");
-                return;
-            }
+                if (String.IsNullOrEmpty(nameTextBox.Text))
+                {
+                    MessageBox.Show("Name Cannot be Empty");
+                    return;
+                }
+                customer.Name = nameTextBox.Text;
+                customer.Address = addressTextBox.Text;
+                if (String.IsNullOrEmpty(contactTextBox.Text) || contactTextBox.Text.Length != 11)
+                {
+                    MessageBox.Show("contact should be of 11 character");
+                    return;
+                }
 
-            customer.Contact = contactTextBox.Text;
-            if (_customerManager.UpdateIsCodeExists(customer))
-            {
-                MessageBox.Show(contactTextBox.Text+" Already Exists");
-                return;
-            }
+                customer.Contact = contactTextBox.Text;
+                if (_customerManager.UpdateIsCodeExists(customer))
+                {
+                    MessageBox.Show(contactTextBox.Text + " Already Exists");
+                    return;
+                }
 
-            if (String.IsNullOrEmpty(emailTextBox.Text))
-            {
-                MessageBox.Show("Email Cannot be Empty");
-                return;
-            }
-            customer.Email = emailTextBox.Text;
-            if (_customerManager.UpdateIsCodeExists(customer))
-            {
-                MessageBox.Show(emailTextBox.Text+" Already Exists");
-                return;
-            }
+                if (String.IsNullOrEmpty(emailTextBox.Text))
+                {
+                    MessageBox.Show("Email Cannot be Empty");
+                    return;
+                }
+                customer.Email = emailTextBox.Text;
+                if (_customerManager.UpdateIsCodeExists(customer))
+                {
+                    MessageBox.Show(emailTextBox.Text + " Already Exists");
+                    return;
+                }
 
-            if (_customerManager.Update(customer))
+                if (_customerManager.Update(customer))
+                {
+                    MessageBox.Show("Data Updated Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Update Error");
+                }
+                showDataGridView.DataSource = _customerManager.Display();
+            }catch(Exception exception)
             {
-                MessageBox.Show("Data Updated Successfully");
+                MessageBox.Show(exception.Message);
             }
-            else
-            {
-                MessageBox.Show("Update Error");
-            }
-            showDataGridView.DataSource = _customerManager.Display();
         }
 
         private void CustomerUi_Load(object sender, EventArgs e)

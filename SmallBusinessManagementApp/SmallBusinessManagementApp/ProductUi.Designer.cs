@@ -132,7 +132,6 @@
             this.categoryComboBox.Size = new System.Drawing.Size(121, 21);
             this.categoryComboBox.TabIndex = 3;
             this.categoryComboBox.ValueMember = "Id";
-
             // 
             // categoryBindingSource
             // 
@@ -166,6 +165,7 @@
             this.searchButton.TabIndex = 4;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // showDataGridView
             // 

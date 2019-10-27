@@ -22,64 +22,70 @@ namespace SmallBusinessManagementApp
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            Supplier supplier = new Supplier();
-            if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+            try
             {
-                MessageBox.Show("Code Should consists of 4 character");
-                return;
-            }
-            supplier.Code = codeTextBox.Text;
-            if (_supplierManager.IsCodeExists(supplier))
-            {
-                MessageBox.Show(codeTextBox.Text + " Already Exists");
-                return;
-            }
+                Supplier supplier = new Supplier();
+                if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+                {
+                    MessageBox.Show("Code Should consists of 4 character");
+                    return;
+                }
+                supplier.Code = codeTextBox.Text;
+                if (_supplierManager.IsCodeExists(supplier))
+                {
+                    MessageBox.Show(codeTextBox.Text + " Already Exists");
+                    return;
+                }
 
-            if (String.IsNullOrEmpty(nameTextBox.Text))
-            {
-                MessageBox.Show("Name Cannot be Empty");
-                return;
-            }
-            supplier.Name = nameTextBox.Text;
+                if (String.IsNullOrEmpty(nameTextBox.Text))
+                {
+                    MessageBox.Show("Name Cannot be Empty");
+                    return;
+                }
+                supplier.Name = nameTextBox.Text;
 
-            if (String.IsNullOrEmpty(contactTextBox.Text)||contactTextBox.Text.Length!=11)
-            {
-                MessageBox.Show("contact should be of 11 character");
-                return;
-            }
-            supplier.Contact = contactTextBox.Text;
+                if (String.IsNullOrEmpty(contactTextBox.Text) || contactTextBox.Text.Length != 11)
+                {
+                    MessageBox.Show("contact should be of 11 character");
+                    return;
+                }
+                supplier.Contact = contactTextBox.Text;
 
-            if (_supplierManager.IsContactExists(supplier))
-            {
-                MessageBox.Show(contactTextBox.Text + " Already Exists");
-                return;
-            }
+                if (_supplierManager.IsContactExists(supplier))
+                {
+                    MessageBox.Show(contactTextBox.Text + " Already Exists");
+                    return;
+                }
 
-            if (String.IsNullOrEmpty(emailTextBox.Text))
-            {
-                MessageBox.Show("Email Cannot be Empty");
-                return;
-            }
+                if (String.IsNullOrEmpty(emailTextBox.Text))
+                {
+                    MessageBox.Show("Email Cannot be Empty");
+                    return;
+                }
 
-            supplier.Email = emailTextBox.Text;
-            if (_supplierManager.IsEmailExists(supplier))
-            {
-                MessageBox.Show(emailTextBox.Text + " Already Exists");
-                return;
-            }
+                supplier.Email = emailTextBox.Text;
+                if (_supplierManager.IsEmailExists(supplier))
+                {
+                    MessageBox.Show(emailTextBox.Text + " Already Exists");
+                    return;
+                }
 
-            supplier.Address = addressTextBox.Text;
-            supplier.Contact_Person = contactPersonTextBox.Text;
+                supplier.Address = addressTextBox.Text;
+                supplier.Contact_Person = contactPersonTextBox.Text;
 
-            if (_supplierManager.Add(supplier))
+                if (_supplierManager.Add(supplier))
+                {
+                    MessageBox.Show("Data Saved Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Save Error");
+                }
+                showDataGridView.DataSource = _supplierManager.Display();
+            }catch(Exception exception)
             {
-                MessageBox.Show("Data Saved Successfully");
+                MessageBox.Show(exception.Message);
             }
-            else
-            {
-                MessageBox.Show("Save Error");
-            }
-            showDataGridView.DataSource = _supplierManager.Display();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -95,67 +101,73 @@ namespace SmallBusinessManagementApp
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            Supplier supplier = new Supplier();
-            supplier.Id = Id_value;
-
-            if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+            try
             {
-                MessageBox.Show("Code Should consists of 4 character");
-                return;
-            }
+                Supplier supplier = new Supplier();
+                supplier.Id = Id_value;
 
-            supplier.Code = codeTextBox.Text;
-            if (_supplierManager.UpdateIsCodeExists(supplier))
-            {
-                MessageBox.Show(codeTextBox.Text+" Already Exists");
-                return;
-            }
-            if (String.IsNullOrEmpty(nameTextBox.Text))
-            {
-                MessageBox.Show("Name Cannot be Empty");
-                return;
-            }
+                if (String.IsNullOrEmpty(codeTextBox.Text) || codeTextBox.Text.Length != 4)
+                {
+                    MessageBox.Show("Code Should consists of 4 character");
+                    return;
+                }
 
-            supplier.Name = nameTextBox.Text;
-            supplier.Address = addressTextBox.Text;
+                supplier.Code = codeTextBox.Text;
+                if (_supplierManager.UpdateIsCodeExists(supplier))
+                {
+                    MessageBox.Show(codeTextBox.Text + " Already Exists");
+                    return;
+                }
+                if (String.IsNullOrEmpty(nameTextBox.Text))
+                {
+                    MessageBox.Show("Name Cannot be Empty");
+                    return;
+                }
 
-            if (String.IsNullOrEmpty(contactTextBox.Text) || contactTextBox.Text.Length != 11)
-            {
-                MessageBox.Show("contact should be of 11 character");
-                return;
-            }
+                supplier.Name = nameTextBox.Text;
+                supplier.Address = addressTextBox.Text;
 
-            supplier.Contact = contactTextBox.Text;
-            if (_supplierManager.UpdateIsContactExists(supplier))
-            {
-                MessageBox.Show(contactTextBox.Text+" Already Exists");
-                return;
-            }
+                if (String.IsNullOrEmpty(contactTextBox.Text) || contactTextBox.Text.Length != 11)
+                {
+                    MessageBox.Show("contact should be of 11 character");
+                    return;
+                }
 
-            if (String.IsNullOrEmpty(emailTextBox.Text))
-            {
-                MessageBox.Show("Email Cannot be Empty");
-                return;
-            }
+                supplier.Contact = contactTextBox.Text;
+                if (_supplierManager.UpdateIsContactExists(supplier))
+                {
+                    MessageBox.Show(contactTextBox.Text + " Already Exists");
+                    return;
+                }
 
-            supplier.Email = emailTextBox.Text;
-            if (_supplierManager.UpdateIsEmailExists(supplier))
-            {
-                MessageBox.Show(emailTextBox.Text+" Already Exists");
-                return;
-            }
+                if (String.IsNullOrEmpty(emailTextBox.Text))
+                {
+                    MessageBox.Show("Email Cannot be Empty");
+                    return;
+                }
 
-            supplier.Contact_Person = contactPersonTextBox.Text;
+                supplier.Email = emailTextBox.Text;
+                if (_supplierManager.UpdateIsEmailExists(supplier))
+                {
+                    MessageBox.Show(emailTextBox.Text + " Already Exists");
+                    return;
+                }
 
-            if (_supplierManager.Update(supplier))
+                supplier.Contact_Person = contactPersonTextBox.Text;
+
+                if (_supplierManager.Update(supplier))
+                {
+                    MessageBox.Show("Data Updated Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Update Error");
+                }
+                showDataGridView.DataSource = _supplierManager.Display();
+            }catch(Exception exception)
             {
-                MessageBox.Show("Data Updated Successfully");
+                MessageBox.Show(exception.Message);
             }
-            else
-            {
-                MessageBox.Show("Update Error");
-            }
-            showDataGridView.DataSource = _supplierManager.Display();
 
         }
 
