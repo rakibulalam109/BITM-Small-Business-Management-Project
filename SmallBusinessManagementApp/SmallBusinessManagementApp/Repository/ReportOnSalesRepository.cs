@@ -11,22 +11,23 @@ namespace SmallBusinessManagementApp.Repository
 {
     public class ReportOnSalesRepository
     {
+        string connectionString = @"Server=DESKTOP-CR4IGJV; Database=SMS_RAMPAGE; Integrated Security=True";
         public DataTable Search(Sales sales)
         {
 
             //Connection
-            string connectionString = @"Server=DESKTOP-CR4IGJV; Database=SMS_RAMPAGE; Integrated Security=True";
+            
             SqlConnection sqlConnection = new SqlConnection(connectionString);
 
             //Command 
 
             string commandString = @"SELECT Category.Name AS Category, Product.Code ,Product.Name As Product, SUM(Sales_Details.Quantity) AS Sold_Qty,
-SUM(Sales_Details.Quantity)*(SELECT SUM(Unit_Price) FROM Purchase_Details WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id GROUP BY Purchase_Details.Product_Id)/COUNT(*) AS CP,
-SUM(Sales_Details.Quantity)*(SELECT SUM(MRP) FROM Purchase_Details WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id GROUP BY Purchase_Details.Product_Id)/COUNT(*) AS Sales_Price,
-SUM(Sales_Details.Quantity)*(SELECT SUM(MRP) FROM Purchase_Details WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id GROUP BY Purchase_Details.Product_Id)/COUNT(*)-SUM(Sales_Details.Quantity)*(SELECT SUM(Unit_Price) FROM Purchase_Details WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id GROUP BY Purchase_Details.Product_Id)/COUNT(*) AS Profit
+SUM(Sales_Details.Quantity)*(SELECT SUM(Unit_Price)/COUNT(*) FROM Purchase_Details WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id GROUP BY Purchase_Details.Product_Id) AS CP,
+SUM(Sales_Details.Quantity*Sales_Details.MRP) AS Sales_Price,
+SUM(Sales_Details.Quantity*Sales_Details.MRP)-SUM(Sales_Details.Quantity)*(SELECT SUM(Unit_Price)/COUNT(*) FROM Purchase_Details WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id GROUP BY Purchase_Details.Product_Id) AS Profit
 FROM Sales_Details LEFT JOIN Product ON Sales_Details.Product_Id=Product.Id
 LEFT JOIN Category ON Product.Category_Id=Category.Id
-LEFT JOIN Sales ON Sales_Details.Sales_Id=Sales.Id WHERE Sales.Date1>='"+sales.Date1+"' and Sales.Date1<='"+sales.Date2+"' Group by Sales_Details.Product_Id,Product.Name,Product.Code, Category.Name";
+LEFT JOIN Sales ON Sales_Details.Sales_Id=Sales.Id WHERE Sales.Date1>='"+sales.Date1+"' and Sales.Date1<='"+sales.Date2+"'Group by Sales_Details.Product_Id,Product.Name,Product.Code, Category.Name";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
             //Open
@@ -83,5 +84,7 @@ LEFT JOIN Sales ON Sales_Details.Sales_Id=Sales.Id WHERE Sales.Date1>='"+sales.D
             return dataTable;
 
         }
+
+        
     }
 }

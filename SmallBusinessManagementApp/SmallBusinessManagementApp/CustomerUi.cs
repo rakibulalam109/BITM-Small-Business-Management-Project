@@ -9,10 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SmallBusinessManagementApp.Model;
 using SmallBusinessManagementApp.BLL;
+using  System.Text.RegularExpressions;
+
 namespace SmallBusinessManagementApp
+
 {
     public partial class CustomerUi : Form
     {
+        string pattern ="^([0 - 9a - zA - Z]([-\\.\\w]*[0 - 9a - zA - Z])*@([0 - 9a - zA - Z][-\\w]*[0 - 9a - zA - Z]\\.)+[a-zA-Z]{2,9})$";
         int Id_value;
         CustomerManager _customerManager = new CustomerManager();
         public CustomerUi()
@@ -59,10 +63,11 @@ namespace SmallBusinessManagementApp
 
                 if (String.IsNullOrEmpty(emailTextBox.Text))
                 {
-                    MessageBox.Show("Email Cannot be Empty");
+                    MessageBox.Show("Email Cannot be Empty ");
                     return;
                 }
                 customer.Email = emailTextBox.Text;
+               
                 if (_customerManager.IsEmailExists(customer))
                 {
                     MessageBox.Show(emailTextBox.Text + " Already Exists");
@@ -71,7 +76,13 @@ namespace SmallBusinessManagementApp
 
 
                 customer.Address = addressTextBox.Text;
-                customer.Loyality_point = Convert.ToDouble(loyalityPointTextBox.Text);
+                if (Convert.ToInt32(loyalityPointTextBox)<0)
+                {
+                    MessageBox.Show("Loyality point cannot be less than zero");
+                    return;
+                }
+
+                customer.Loyality_point = Convert.ToInt32(loyalityPointTextBox.Text);
 
                 if (_customerManager.Add(customer))
                 {

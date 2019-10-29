@@ -140,7 +140,7 @@ namespace SmallBusinessManagementApp.Repository
 
                 //Command 
                 //UPDATE Items SET Name =  'Hot' , Price = 130 WHERE ID = 1
-                string commandString = @"UPDATE Customer SET  Code = "+customer.Code+", Name = '"+customer.Name+"', Address = '"+customer.Address+"',Contact ='"+customer.Contact+"', Email = '"+customer.Email+"' WHERE Id = "+customer.Id+"";
+                string commandString = @"UPDATE Customer SET  Code = "+customer.Code+", Name = '"+customer.Name+"', Address = '"+customer.Address+"',Contact ='"+customer.Contact+"', Email = '"+customer.Email+ "',Loyality_point="+customer.Loyality_point+" WHERE Id = " + customer.Id+"";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 //Open
@@ -445,6 +445,19 @@ namespace SmallBusinessManagementApp.Repository
             }
 
             return exists;
+        }
+
+       public bool IsValidEmail(Customer customer)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(customer.Email);
+                return addr.Address == customer.Email;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

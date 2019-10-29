@@ -18,6 +18,7 @@ namespace SmallBusinessManagementApp
         public CategoryUi()
         {
             InitializeComponent();
+            
         }
 
         private void saveButton_Click(object sender, EventArgs e)

@@ -14,6 +14,6 @@ namespace SmallBusinessManagementApp.Model
         public string Address { set; get; }
         public string Contact { set; get; }
         public string Email { set; get; }
-        public double Loyality_point { set; get; }
+        public int Loyality_point { set; get; }
     }
 }

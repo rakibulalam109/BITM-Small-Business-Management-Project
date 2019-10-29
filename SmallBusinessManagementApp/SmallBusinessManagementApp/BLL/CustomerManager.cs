@@ -54,6 +54,11 @@ namespace SmallBusinessManagementApp.BLL
             return _customerRepository.UpdateIsEmailExists(customer);
         }
 
+        public bool IsValidEmail(Customer customer)
+        {
+            return _customerRepository.IsValidEmail(customer);
+        }
+
 
 
     }

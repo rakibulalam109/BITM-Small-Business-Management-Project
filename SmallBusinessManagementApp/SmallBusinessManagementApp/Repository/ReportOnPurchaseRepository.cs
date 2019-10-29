@@ -20,20 +20,12 @@ namespace SmallBusinessManagementApp.Repository
 
             //Command 
 
-            string commandString = @"SELECT Product.Code,Product.Name,Category.Name As Category, SUM(Purchase_Details.Quantity)-(SELECT SUM(Quantity) FROM Sales_Details WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id GROUP BY Sales_Details.Product_Id) AS Available_Qty,
-(SUM(Purchase_Details.Quantity)-(SELECT SUM(Quantity) FROM Sales_Details WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id GROUP BY Sales_Details.Product_Id))* SUM(Purchase_Details.Unit_Price)/COUNT(*)  AS CP,
-(SUM(Purchase_Details.Quantity)-(SELECT SUM(Quantity) FROM Sales_Details WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id GROUP BY Sales_Details.Product_Id))* SUM(Purchase_Details.MRP)/COUNT(*)  AS MRP,
-(SUM(Purchase_Details.Quantity)-(SELECT SUM(Quantity) FROM Sales_Details WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id GROUP BY Sales_Details.Product_Id))* SUM(Purchase_Details.MRP)/COUNT(*)-(SUM(Purchase_Details.Quantity)-(SELECT SUM(Quantity) FROM Sales_Details WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id GROUP BY Sales_Details.Product_Id))* SUM(Purchase_Details.Unit_Price)/COUNT(*) AS Profit
-FROM Purchase_Details
-LEFT JOIN Product ON Purchase_Details.Product_Id=Product.Id
-LEFT JOIN Category ON Product.Category_Id=Category.Id
-LEFT JOIN Purchase ON Purchase_Details.Purchase_Id=Purchase.Id 
-WHERE Purchase.Date1 >='"+purchase.Date1+"' and Purchase.Date1<='"+purchase.Date2+"' GROUP BY Purchase_Details.Product_Id,Product.Name,Product.Code, Category.Name";
+            string commandString = @"SELECT Product.Name,Product.Code,Category.Name As Category,  SUM(Purchase_Details.Quantity)-(SELECT SUM(Quantity) FROM Sales_Details LEFT JOIN Sales ON Sales_Details.Sales_Id=Sales.Id WHERE Sales_Details.Product_Id=Purchase_Details.Product_Id AND Sales.Date1 >='"+purchase.Date1+"' and Sales.Date1<='"+purchase.Date2+"' GROUP BY Sales_Details.Product_Id ) AS Available_Qty, (SUM(Purchase_Details.Quantity)-(SELECT SUM(Quantity) FROM Sales_Details LEFT JOIN Sales ON Sales_Details.Sales_Id=Sales.Id WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id AND Sales.Date1 >='"+purchase.Date1+"' and Sales.Date1<='"+purchase.Date2+"' GROUP BY Sales_Details.Product_Id))* SUM(Purchase_Details.Unit_Price)/COUNT(*)  AS CP,  (SUM(Purchase_Details.Quantity)-(SELECT SUM(Quantity) FROM Sales_Details LEFT JOIN Sales ON Sales_Details.Sales_Id=Sales.Id WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id AND Sales.Date1 >='"+purchase.Date1+"' and Sales.Date1<='"+purchase.Date2+"' GROUP BY Sales_Details.Product_Id))* SUM(Purchase_Details.MRP)/COUNT(*)  AS MRP,  (SUM(Purchase_Details.Quantity)-(SELECT SUM(Quantity) FROM Sales_Details LEFT JOIN Sales ON Sales_Details.Sales_Id=Sales.Id WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id AND Sales.Date1 >='"+purchase.Date1+"' and Sales.Date1<='"+purchase.Date2+"' GROUP BY Sales_Details.Product_Id))* SUM(Purchase_Details.MRP)/COUNT(*)-(SUM(Purchase_Details.Quantity)-(SELECT SUM(Quantity) FROM Sales_Details LEFT JOIN Sales ON Sales_Details.Sales_Id=Sales.Id  WHERE Purchase_Details.Product_Id=Sales_Details.Product_Id AND Sales.Date1 >='"+purchase.Date1+"' and Sales.Date1<='"+purchase.Date2+"' GROUP BY Sales_Details.Product_Id))* SUM(Purchase_Details.Unit_Price)/COUNT(*) AS Profit FROM Purchase_Details LEFT JOIN Product ON Purchase_Details.Product_Id=Product.Id LEFT JOIN Category ON Product.Category_Id=Category.Id LEFT JOIN Purchase ON Purchase_Details.Purchase_Id=Purchase.Id  WHERE Purchase.Date1 >='"+purchase.Date1+"' and Purchase.Date1<='"+purchase.Date2+"' GROUP BY Purchase_Details.Product_Id,Product.Code, Category.Name,Product.Name";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
             //Open
             sqlConnection.Open();
-
+           
             //Show
             //With DataAdapter
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);

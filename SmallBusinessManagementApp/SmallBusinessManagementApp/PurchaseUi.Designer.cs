@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.warningLabel = new System.Windows.Forms.Label();
             this.purchaseButton = new System.Windows.Forms.Button();
             this.submitButton = new System.Windows.Forms.Button();
             this.ExpireDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -90,7 +91,6 @@
             this.productidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.warningLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -114,6 +114,7 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Supplier";
+           
             // 
             // supplyDateTimePicker
             // 
@@ -210,6 +211,14 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Products";
+            // 
+            // warningLabel
+            // 
+            this.warningLabel.AutoSize = true;
+            this.warningLabel.Location = new System.Drawing.Point(563, 66);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(0, 13);
+            this.warningLabel.TabIndex = 6;
             // 
             // purchaseButton
             // 
@@ -649,14 +658,6 @@
             this.date2DataGridViewTextBoxColumn.Name = "date2DataGridViewTextBoxColumn";
             this.date2DataGridViewTextBoxColumn.ReadOnly = true;
             this.date2DataGridViewTextBoxColumn.Visible = false;
-            // 
-            // warningLabel
-            // 
-            this.warningLabel.AutoSize = true;
-            this.warningLabel.Location = new System.Drawing.Point(563, 66);
-            this.warningLabel.Name = "warningLabel";
-            this.warningLabel.Size = new System.Drawing.Size(0, 13);
-            this.warningLabel.TabIndex = 6;
             // 
             // PurchaseUi
             // 

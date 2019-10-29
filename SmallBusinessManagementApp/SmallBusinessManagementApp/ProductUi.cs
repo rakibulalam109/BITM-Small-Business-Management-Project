@@ -20,6 +20,7 @@ namespace SmallBusinessManagementApp
         public ProductUi()
         {
             InitializeComponent();
+            
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -173,6 +174,11 @@ namespace SmallBusinessManagementApp
 
             showDataGridView.DataSource = _productManager.Search(product);
 
+        }
+
+        private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            categoryComboBox.Text = "--Select--";
         }
     }
 }

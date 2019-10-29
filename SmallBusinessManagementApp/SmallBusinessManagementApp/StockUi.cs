@@ -25,21 +25,28 @@ namespace SmallBusinessManagementApp
         {
             try
             {
-                Purchase purchase = new Purchase();
-                purchase.Date1 = startDateTimePicker.Value;
-                purchase.Date2 = endDateTimePicker.Value;
-                Product product = new Product();
-                if (String.IsNullOrEmpty(categoryTextBox.Text) && String.IsNullOrEmpty(productTextBox.Text))
+                if (reorderCheckBox.Checked == false)
                 {
-                    MessageBox.Show("Please Enter at least one field to search");
-                    return;
+                    Purchase purchase = new Purchase();
+                    purchase.Date1 = startDateTimePicker.Value;
+                    purchase.Date2 = endDateTimePicker.Value;
+                    Product product = new Product();
+                    if (String.IsNullOrEmpty(categoryTextBox.Text) && String.IsNullOrEmpty(productTextBox.Text))
+                    {
+                        MessageBox.Show("Please Enter at least one field to search");
+                        return;
+                    }
+
+                    product.Name = productTextBox.Text;
+                    Category category = new Category();
+                    category.Name = categoryTextBox.Text;
+
+                    showDataGridView.DataSource = _stockReportManager.Search(purchase, product, category);
                 }
-
-                product.Name = productTextBox.Text;
-                Category category = new Category();
-                category.Name = categoryTextBox.Text;
-
-                showDataGridView.DataSource = _stockReportManager.Search(purchase, product, category);
+                else
+                {
+                    showDataGridView.DataSource = _stockReportManager.SearchByReorderLevel();
+                }
             }catch(Exception exception)
             {
                 MessageBox.Show(exception.Message);

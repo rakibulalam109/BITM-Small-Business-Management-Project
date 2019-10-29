@@ -17,5 +17,10 @@ namespace SmallBusinessManagementApp.BLL
         {
             return _stockReportRepository.Search(purchase, product, category);
         }
+
+        public DataTable SearchByReorderLevel()
+        {
+            return _stockReportRepository.SearchByReorderLevel();
+        }
     }
 }
